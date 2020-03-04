@@ -32,6 +32,7 @@ class Expense(object):
             self.deleted_at                = data["deleted_at"]
             self.receipt                   = Receipt(data["receipt"])
             self.category                  = Category(data["category"])
+            self.category_id               = self.category.id
 
             if data["updated_by"] is not None:
                 self.updated_by                = User(data["updated_by"])
@@ -134,6 +135,9 @@ class Expense(object):
     def getCategory(self):
         return self.category
 
+    def getCategoryId(self):
+        return self.category_id
+
     def getUpdatedBy(self):
         return self.updated_by
 
@@ -182,6 +186,9 @@ class Expense(object):
 
     def setCategory(self,category):
         self.category = category
+
+    def setCategoryId(self, category_id):
+        self.category_id = category_id
 
     def setUsers(self,users):
         self.users = users
